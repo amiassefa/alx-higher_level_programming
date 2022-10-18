@@ -1,7 +1,5 @@
 #!/usr/bin/python3
 '''Module for N Queens problem.'''
-
-
 def isSafe(board, row, col):
     '''Checks if position is safe from attack.
     Args:
