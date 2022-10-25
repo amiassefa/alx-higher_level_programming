@@ -1,6 +1,16 @@
 #!/usr/bin/python3
-from json import loads
+"""
+Json Module
+"""
+import json
 
 
 def from_json_string(my_str):
-    return loads(my_str)
+    """convert str to object
+    args:
+        my_str: string to convert
+    return:
+        object
+    """
+
+    return json.loads(my_str)

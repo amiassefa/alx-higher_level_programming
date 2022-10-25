@@ -1,27 +1,37 @@
 #!/usr/bin/python3
+"""
+Class Module
+"""
+
+
 class Student:
+    """Student class
+    """
+
     def __init__(self, first_name, last_name, age):
+        """initialize method"""
         self.first_name = first_name
         self.last_name = last_name
         self.age = age
 
     def to_json(self, attrs=None):
-        class_d = self.__dict__
-        sel_d = dict()
+        """retrieves a dictionary representation of student instance
+        args:
+            attrs: attributes
+        return:
+            na
+        """
+        if not attrs:
+            return vars(self)
 
-        if type(attrs) is list:
-            for attr in attrs:
-                if type(attr) is not str:
-                    return class_d
-
-                if attr in class_d:
-                    sel_d[attr] = class_d[attr]
-
-            return sel_d
-
-        return class_d
+        return ({key: value for key, value in self.__dict__.items()
+                 if key in attrs})
 
     def reload_from_json(self, json):
-        for i in json:
-            if i in self.__dict__.keys():
-                self.__dict__[i] = json[i]
+        """replace attributes method
+        args:
+            json: json object
+        return:
+            na
+        """
+        self.__dict__.update(json)

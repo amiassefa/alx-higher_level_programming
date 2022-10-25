@@ -1,25 +1,21 @@
 #!/usr/bin/python3
+"""
+Pascal's Triangle Module
+"""
+
+
 def pascal_triangle(n):
+    """calculate pascal
+    args:
+        n: value
+    return
+        list
+    """
+    my_list = []
     if n <= 0:
-        return []
-
-    limit = n - 1
-    triangle = [[1]]
-
-    for i in range(limit):
-        row = []
-        row.append(1)
-
-        if len(triangle[i]) > 1:
-            prev_row_len = len(triangle[i]) - 1
-            nxt = 1
-
-            for j in range(prev_row_len):
-                suma = triangle[i][j] + triangle[i][nxt]
-                row.append(suma)
-                nxt += 1
-
-        row.append(1)
-        triangle.append(row)
-
-    return triangle
+        return my_list
+    for i in range(n):
+        num = 11**i
+        li = [int(n) for n in str(num)]
+        my_list.append(li)
+    return my_list
